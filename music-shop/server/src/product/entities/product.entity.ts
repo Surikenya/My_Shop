@@ -1,4 +1,11 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
+import { Brand } from '../../brand/entities/brand.entity';
 
 @Entity()
 export class Product {
@@ -17,8 +24,12 @@ export class Product {
   @Column()
   image: string;
 
-  @Column()
-  brand: string;
+  @Column({ nullable: true })
+  defaultImage: string | null;
+
+  @ManyToOne(() => Brand, (brand) => brand.products, { nullable: true })
+  @JoinColumn({ name: 'brandId' })
+  brand: Brand | null;
 
   @Column()
   category: string;

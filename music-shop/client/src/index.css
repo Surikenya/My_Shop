@@ -4,10 +4,27 @@
   padding: 0;
 }
 
+:root {
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  color: #111827;
+  background-color: #f5f7fb;
+}
+
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f5f5f7;
-  color: #1f1f1f;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(37, 99, 235, 0.12), transparent 32%),
+    radial-gradient(circle at top right, rgba(17, 24, 39, 0.10), transparent 28%),
+    #f5f7fb;
+  color: #111827;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
 }
 
 img {
@@ -17,110 +34,106 @@ img {
 
 .container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1240px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 24px;
 }
 
 .header {
-  background-color: #111827;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(17, 24, 39, 0.94);
+  backdrop-filter: blur(14px);
   color: white;
-  padding: 30px 0;
-  margin-bottom: 30px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 30px rgba(17, 24, 39, 0.18);
 }
 
-.logo {
-  font-size: 32px;
-  margin-bottom: 8px;
+.header-container {
+  min-height: 86px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
 }
 
-.subtitle {
-  font-size: 16px;
-  color: #d1d5db;
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brand-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #2563eb, #60a5fa);
+  color: white;
+  box-shadow: 0 10px 24px rgba(37, 99, 235, 0.34);
+}
+
+.brand-title {
+  font-size: 30px !important;
+  line-height: 1 !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.04em !important;
+}
+
+.brand-subtitle {
+  margin-top: 6px !important;
+  font-size: 14px !important;
+  color: #cbd5e1 !important;
+}
+
+.header-badge {
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #dbeafe;
+  background-color: rgba(37, 99, 235, 0.16);
+  border: 1px solid rgba(147, 197, 253, 0.28);
 }
 
 .main-content {
-  padding-bottom: 40px;
+  padding-top: 38px;
+  padding-bottom: 56px;
 }
 
 .hero {
   margin-bottom: 30px;
+  padding: 28px;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(209, 213, 219, 0.75);
+  box-shadow: 0 18px 50px rgba(17, 24, 39, 0.08);
 }
 
 .hero h2 {
-  font-size: 28px;
+  font-size: 34px;
+  line-height: 1.12;
+  letter-spacing: -0.04em;
   margin-bottom: 10px;
 }
 
 .hero p {
+  max-width: 660px;
   font-size: 16px;
+  line-height: 1.6;
   color: #4b5563;
 }
 
-.product-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-}
-
-.product-card {
-  background-color: white;
-  border-radius: 14px;
-  overflow: hidden;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-}
-
-.product-image {
-  width: 100%;
-  height: 240px;
-  object-fit: cover;
-  background-color: #e5e7eb;
-}
-
-.product-content {
-  padding: 18px;
-}
-
-.product-title {
-  font-size: 20px;
-  margin-bottom: 10px;
-}
-
-.product-description {
-  font-size: 14px;
-  color: #4b5563;
-  margin-bottom: 14px;
-  line-height: 1.5;
-}
-
-.product-meta {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  margin-bottom: 14px;
-  font-size: 14px;
-}
-
-.product-bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-}
-
-.product-price {
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.in-stock {
-  color: #15803d;
-  font-weight: bold;
-}
-
-.out-of-stock {
+.error-message {
   color: #b91c1c;
-  font-weight: bold;
+  font-size: 16px;
+  padding: 14px 18px;
+  border-radius: 14px;
+  background-color: #fee2e2;
+  border: 1px solid #fecaca;
 }
 
 .empty-message {
@@ -128,7 +141,63 @@ img {
   color: #6b7280;
 }
 
-.error-message {
-  color: #b91c1c;
-  font-size: 16px;
+.MuiCard-root {
+  border-radius: 24px !important;
+  border: 1px solid rgba(229, 231, 235, 0.95);
+  box-shadow: 0 14px 34px rgba(17, 24, 39, 0.08) !important;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.MuiCard-root:hover {
+  transform: translateY(-4px);
+  border-color: rgba(147, 197, 253, 0.9);
+  box-shadow: 0 22px 48px rgba(17, 24, 39, 0.13) !important;
+}
+
+.MuiCardMedia-root {
+  background-color: #e5e7eb;
+}
+
+.MuiButton-root {
+  text-transform: none !important;
+  border-radius: 12px !important;
+  font-weight: 700 !important;
+}
+
+.MuiTextField-root .MuiOutlinedInput-root {
+  border-radius: 14px;
+}
+
+@media (max-width: 720px) {
+  .header-container {
+    min-height: auto;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .header-badge {
+    display: none;
+  }
+
+  .brand-title {
+    font-size: 26px !important;
+  }
+
+  .main-content {
+    padding-top: 24px;
+  }
+
+  .hero {
+    padding: 22px;
+    border-radius: 22px;
+  }
+
+  .hero h2 {
+    font-size: 27px;
+  }
 }

@@ -3,6 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ProductModule } from './product/product.module';
+import { BrandModule } from './brand/brand.module';
 
 @Module({
   imports: [
@@ -14,9 +15,10 @@ import { ProductModule } from './product/product.module';
       password: '5647382910',
       database: 'music_shop',
       autoLoadEntities: true,
-      synchronize: true,
+      synchronize: false,
     }),
     ProductModule,
+    BrandModule,
   ],
   controllers: [AppController],
   providers: [AppService],
